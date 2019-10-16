@@ -1,8 +1,9 @@
 {
   "required": true,
-  "package": "",
+  "package": "com.github.liachmodded.cartprotocol.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "ServerPlayNetworkHandlerMixin"
   ],
   "client": [
   ],

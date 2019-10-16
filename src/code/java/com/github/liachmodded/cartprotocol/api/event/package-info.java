@@ -13,26 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+@DefaultQualifier(NonNull.class)
 package com.github.liachmodded.cartprotocol.api.event;
 
-import net.minecraft.network.Packet;
-import net.minecraft.network.listener.PacketListener;
-
-/**
- * The generic callback interface shared by all packet callbacks.
- *
- * @param <H> the packet listener
- * @param <P> the packet
- */
-public interface PacketCallback<H extends PacketListener, P extends Packet<? super H>> {
-
-  /**
-   * The receiver method for the packet.
-   *
-   * @param packet the packet
-   * @param listener the packet listener
-   * @return {@code true} to prevent default packet logic from executing
-   */
-  boolean handle(P packet, H listener);
-
-}
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.framework.qual.DefaultQualifier;

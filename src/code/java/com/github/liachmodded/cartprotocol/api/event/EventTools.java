@@ -22,15 +22,17 @@ import net.minecraft.network.listener.PacketListener;
 
 public final class EventTools {
 
-  @SuppressWarnings("unchecked") // TODO ask player to fix generics in event factory
+  @SuppressWarnings("unchecked") // TODO Update and remove cast/generics when fab api updates
   public static <H extends PacketListener, P extends Packet<? super H>> Event<PacketCallback<H, P>> event() {
     return EventFactory.createArrayBacked((Class<PacketCallback<H, P>>) (Class<?>) PacketCallback.class, handlers -> (packet, listener) -> {
       for (PacketCallback<H, P> handler : handlers) {
-        if (handler.onPacket(packet, listener)) {
+        if (handler.handle(packet, listener)) {
           return true;
         }
       }
       return false;
     });
   }
+
+  private EventTools() {}
 }
