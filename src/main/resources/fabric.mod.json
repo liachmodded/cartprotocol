@@ -3,27 +3,26 @@
   "id": "${id}",
   "version": "${version}",
 
-  "name": "double cart",
+  "name": "cart protocol",
   "description": "${description}",
   "authors": [
     "liach"
   ],
   "contact": {
-    "homepage": "https://github.com/${repoOwner}/${repoName}",
-    "sources": "https://github.com/${repoOwner}/${repoName}"
+    "homepage": "https://${repoOwner}.github.io/${repoName}/",
+    "sources": "https://github.com/${repoOwner}/${repoName}",
+    "issues": "https://github.com/${repoOwner}/${repoName}/issues"
   },
 
-  "license": "MPL-2.0",
-  "icon": "assets/${id}/icon.png",
+  "license": "Apache 2.0",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.github.liachmodded.doublecart.DoubleCartEntry"
     ]
   },
   "mixins": [
-    "doublecart.mixins.json"
+    "cartprotocol.mixins.json"
   ],
 
   "depends": {

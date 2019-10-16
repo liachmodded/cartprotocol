@@ -25,8 +25,10 @@ dependencies {
     mappings "net.fabricmc:yarn:${project.yarnMappings}"
     modCompile "net.fabricmc:fabric-loader:${project.loaderVersion}"
 
+    compileOnly "org.checkerframework:checker-qual:2.11.0"
+
     // Fabric API. This is technically optional, but you probably want it anyway.
-    // modCompile "net.fabricmc.fabric-api:fabric-api:${project.apiVersion}"
+    modCompile "net.fabricmc.fabric-api:fabric-api:${project.apiVersion}"
 
     // PSA: Some older mods, compiled on Loom 0.2.1, might have outdated Maven POMs.
     // You may need to force-disable transitiveness on them.
@@ -42,6 +44,12 @@ sourceSets {
         compileClasspath += configurations.minecraftNamed
     }
     data {
+        compileClasspath += sourceSets.code.compileClasspath
+        compileClasspath += sourceSets.code.output
+        runtimeClasspath += sourceSets.code.compileClasspath
+        runtimeClasspath += sourceSets.code.output
+    }
+    main {
         compileClasspath += sourceSets.code.compileClasspath
         compileClasspath += sourceSets.code.output
         runtimeClasspath += sourceSets.code.compileClasspath
