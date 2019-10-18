@@ -3,7 +3,12 @@
   "package": "com.github.liachmodded.cartprotocol.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "ServerPlayNetworkHandlerMixin"
+    "ServerHandshakeNetworkHandlerMixin",
+    "ServerLoginNetworkHandlerMixin",
+    "ServerPlayNetworkHandlerMixin",
+    "ServerQueryNetworkHandlerMixin",
+    "client.ClientLoginNetworkHandlerMixin",
+    "client.MpServerListPingerQueryNetworkHandlerMixin"
   ],
   "client": [
   ],

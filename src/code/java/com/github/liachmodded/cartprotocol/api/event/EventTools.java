@@ -20,11 +20,20 @@ import net.fabricmc.fabric.api.event.EventFactory;
 import net.minecraft.network.Packet;
 import net.minecraft.network.listener.PacketListener;
 
+/**
+ * Utilities for packet callbacks.
+ */
 public final class EventTools {
 
-  @SuppressWarnings("unchecked") // TODO Update and remove cast/generics when fab api updates
+  /**
+   * Creates an event for a packet callback.
+   * 
+   * @param <H> the packet listener type
+   * @param <P> the packet type
+   * @return the created event
+   */
   public static <H extends PacketListener, P extends Packet<? super H>> Event<PacketCallback<H, P>> event() {
-    return EventFactory.createArrayBacked((Class<PacketCallback<H, P>>) (Class<?>) PacketCallback.class, handlers -> (packet, listener) -> {
+    return EventFactory.createArrayBacked(PacketCallback.class, handlers -> (packet, listener) -> {
       for (PacketCallback<H, P> handler : handlers) {
         if (handler.handle(packet, listener)) {
           return true;
